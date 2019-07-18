@@ -25,6 +25,7 @@ namespace pocketmine\plugin;
 
 use pocketmine\permission\Permission;
 use function array_map;
+use function array_merge;
 use function array_values;
 use function constant;
 use function defined;
@@ -140,7 +141,7 @@ class PluginDescription{
 			$this->authors[] = $plugin["author"];
 		}
 		if(isset($plugin["authors"])){
-			$this->authors[] = (array) $plugin["authors"];
+			$this->authors = array_merge($this->authors, (array) $plugin["authors"]);
 		}
 
 		if(isset($plugin["permissions"])){
